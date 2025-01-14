@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_create.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/14 09:35:49 by cayamash          #+#    #+#             */
+/*   Updated: 2025/01/14 09:35:49 by cayamash         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_stack	*stack_new(int	number)
+t_stack	*stack_new(int number)
 {
 	t_stack	*new;
 
@@ -11,7 +23,7 @@ t_stack	*stack_new(int	number)
 	new -> index = 0;
 	new -> prev = NULL;
 	new -> next = NULL;
-    return (new);
+	return (new);
 }
 
 t_stack	*stack_last(t_stack *stack)
@@ -33,7 +45,7 @@ void	stack_addback(t_stack **stack, t_stack *new)
 	if (!stack || !new)
 		return ;
 	last = stack_last(*stack);
-	if(!last)
+	if (!last)
 		*stack = new;
 	else
 	{
@@ -43,31 +55,32 @@ void	stack_addback(t_stack **stack, t_stack *new)
 	}
 }
 
-void    stack_addfront(t_stack  **stack, t_stack *new)
+void	stack_addfront(t_stack **stack, t_stack *new)
 {
-    if(!stack || !new)
-        return ;
-    if (*stack)
-    {
-        new->next = *stack;
-        (*stack)->prev = new;
-    }
-    else
-    {
-        new->next = NULL;
-        new->prev = NULL;
-    }
-    *stack = new;
-    update_index(stack);
+	if (!stack || !new)
+		return ;
+	if (*stack)
+	{
+		new->next = *stack;
+		(*stack)->prev = new;
+	}
+	else
+	{
+		new->next = NULL;
+		new->prev = NULL;
+	}
+	*stack = new;
+	stack_update_index(stack);
 }
 
-t_stack *create_stack(int	length, char *argv[])
+t_stack	*stack_create(int length, char *argv[])
 {
-    int i;
-	int	number;
-	t_stack *stack = NULL;
+	int		i;
+	int		number;
+	t_stack	*stack;
 
 	i = 0;
+	stack = NULL;
 	while (i++ < length)
 	{
 		number = ft_atoi(argv[i]);
