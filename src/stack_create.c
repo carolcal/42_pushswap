@@ -21,6 +21,7 @@ t_stack	*stack_new(int number)
 		return (NULL);
 	new -> value = number;
 	new -> index = 0;
+	new -> target = NULL;
 	new -> prev = NULL;
 	new -> next = NULL;
 	return (new);

@@ -11,7 +11,8 @@ SRCS = src
 INCLUDES = -I lib/ -I src/ -I .
 
 # Source files and object files
-SRC = $(SRCS)/push_swap.c $(SRCS)/push_swap_utils.c $(SRCS)/stack_create.c $(SRCS)/stack_update.c
+SRC = $(SRCS)/push_swap.c $(SRCS)/push_swap_utils.c $(SRCS)/stack_create.c \
+		$(SRCS)/stack_change.c $(SRCS)/stack_utils.c $(SRCS)/order.c
 OBJ = $(SRC:.c=.o)
 
 #Library

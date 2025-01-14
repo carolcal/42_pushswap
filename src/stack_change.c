@@ -51,33 +51,18 @@ void	stack_remove(t_stack **stack, int index)
 		temp->next->prev = temp->prev;
 }
 
-int	stack_size(t_stack *stack)
-{
-	int		size;
-	t_stack	*temp;
-
-	size = 0;
-	if (!stack || stack == NULL)
-		return (size);
-	temp = stack;
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		size++;
-	}
-	return (size);
-}
-
-void	stack_print(t_stack *stack)
+int	stack_iter(t_stack *stack, int number, int (*f)(int n1, int n2))
 {
 	t_stack	*temp;
 
 	temp = stack;
 	while (temp)
 	{
-		ft_printf("Value: %d, Index: %d\n", temp->value, temp->index);
+		if (f(temp->value, number))
+			return (temp->index);
 		temp = temp->next;
 	}
+	return (-1);
 }
 
 int	stack_free(t_stack *stack)

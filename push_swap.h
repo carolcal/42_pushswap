@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:44:32 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/14 12:12:11 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/14 18:05:43 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
+	int				steps;
+	struct s_stack	*target;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
@@ -38,5 +40,6 @@ void	swap(t_stack **stack, char name);
 void	push(t_stack **src, t_stack **dest, char name);
 void	rotate(t_stack **stack, char name);
 void	reverse_rotate(t_stack **stack, char name);
+int		fastest_index(t_stack *src, t_stack *dest);
 
 #endif
