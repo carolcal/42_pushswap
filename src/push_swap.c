@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:34:35 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/15 16:59:14 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:39:01 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int	large_stack(t_stack **stack_a, t_stack **stack_b)
 		bring_small_top(stack_a);
 	return (is_sorted(*stack_a));
 }
-
 
 int	main(int argc, char *argv[])
 {
