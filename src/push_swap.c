@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:34:35 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/14 18:55:40 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:59:14 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ int	is_sorted(t_stack *stack)
 {
 	t_stack	*temp;
 
+	if (!stack || !stack->next)
+		return (EXIT_SUCCESS);
 	temp = stack;
-	while (temp)
+	while (temp->next)
 	{
-		if (temp->prev && temp->prev->value > temp->value)
-			return (EXIT_FAILURE);
-		if (temp->next && temp->next->value < temp->value)
+		if (temp->value > temp->next->value)
 			return (EXIT_FAILURE);
 		temp = temp->next;
 	}
@@ -37,27 +37,47 @@ int	small_stack(t_stack **stack)
 	}
 	if ((*stack)->value < (*stack)->next->value)
 	{
-		reverse_rotate(stack, 'a');
-		if (is_sorted(*stack))
+		reverse_rotate(stack, NULL, 'a');
+		if (is_sorted(*stack) == 0)
 			return (EXIT_SUCCESS);
 	}
-	if (((*stack)->value > (*stack)->next->value &&
-			(*stack)->value > (*stack)->next->next->value))
+	if (((*stack)->value > (*stack)->next->value
+			&& (*stack)->value > (*stack)->next->next->value))
 	{
-		rotate(stack, 'a');
-		if (is_sorted(*stack))
+		rotate(stack, NULL, 'a');
+		if (is_sorted(*stack) == 0)
 			return (EXIT_SUCCESS);
 	}
 	if ((*stack)->value < (*stack)->next->next->value)
 	{
 		swap(stack, 'a');
-		if (is_sorted(*stack))
+		if (is_sorted(*stack) == 0)
 			return (EXIT_SUCCESS);
 	}
 	return (is_sorted(*stack));
 }
 
-int	big_stack(t_stack **stack_a, t_stack **stack_b)
+void	bring_small_top(t_stack **stack)
+{
+	t_rotate	r;
+	t_stack		*small;
+	int			len;
+
+	len = stack_size(*stack);
+	small = find_smallest(*stack);
+	if (small->index < (len + 1) / 2)
+	{
+		r.rs = small->index;
+		ex_rotate(stack, NULL, r, 'b');
+	}
+	else
+	{
+		r.rrs = len - small->index;
+		ex_revrotate(stack, NULL, r, 'b');
+	}
+}
+
+int	large_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int	index;
 
@@ -66,18 +86,18 @@ int	big_stack(t_stack **stack_a, t_stack **stack_b)
 		push(stack_a, stack_b, 'b');
 	while (stack_size(*stack_a) > 3)
 	{
-		index = fastest_index(*stack_a, *stack_b);
-		//push_to_stack(stack_a, stack_b, index);
+		index = fastest_index(*stack_a, *stack_b, 'b');
+		push_to_stack(stack_a, stack_b, index, 'b');
 	}
-	stack_print(*stack_a);
-	// while (stack_size(*stack_a) > 0)
-	// {
-	// 	small_stack(stack_a);
-	// 	index = fastest_index(*stack_b, *stack_a);
-	// 	push_to_stack(stack_b, stack_a, index);
-	// }
-	//return (is_sorted(*stack_a));
-	return (0);
+	small_stack(stack_a);
+	while (stack_size(*stack_b) > 0)
+	{
+		index = fastest_index(*stack_b, *stack_a, 'a');
+		push_to_stack(stack_b, stack_a, index, 'a');
+	}
+	if (is_sorted(*stack_a) != 0)
+		bring_small_top(stack_a);
+	return (is_sorted(*stack_a));
 }
 
 
@@ -92,12 +112,14 @@ int	main(int argc, char *argv[])
 	{
 		stack_a = stack_create(argc - 1, argv);
 		stack_b = NULL;
-		if (is_sorted(stack_a))
+		stack_print(stack_a);
+		if (is_sorted(stack_a) == 0)
 			return (EXIT_SUCCESS);
 		if (argc > 2 && argc < 5)
 			response = small_stack(&stack_a);
 		else if (argc >= 5)
-			response = big_stack(&stack_a, &stack_b);
+			response = large_stack(&stack_a, &stack_b);
+		ft_printf("stack final \n");
 		stack_print(stack_a);
 		stack_free(stack_a);
 		stack_free(stack_b);

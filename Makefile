@@ -1,3 +1,14 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/15 10:25:21 by cayamash          #+#    #+#              #
+#    Updated: 2025/01/15 15:20:21 by cayamash         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 #Name of the program
 NAME = push_swap
@@ -12,7 +23,8 @@ INCLUDES = -I lib/ -I src/ -I .
 
 # Source files and object files
 SRC = $(SRCS)/push_swap.c $(SRCS)/push_swap_utils.c $(SRCS)/stack_create.c \
-		$(SRCS)/stack_change.c $(SRCS)/stack_utils.c $(SRCS)/order.c
+		$(SRCS)/stack_change.c $(SRCS)/stack_utils.c $(SRCS)/calculate_index.c\
+		$(SRCS)/find_target.c $(SRCS)/push_to_stack.c
 OBJ = $(SRC:.c=.o)
 
 #Library

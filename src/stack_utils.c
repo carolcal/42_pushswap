@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:24:57 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/14 18:03:10 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/15 10:06:03 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,12 @@ void	stack_print(t_stack *stack)
 	temp = stack;
 	while (temp)
 	{
-		ft_printf("Value: %d, Index: %d, Steps: %d, Target_index: %d\n", temp->value, temp->index, temp->steps, temp->target->index);
+		ft_printf("Value: %d, Index: %d, ", temp->value, temp->index);
+		if(temp->steps)
+			ft_printf("Steps: %d, ", temp->steps);
+		if(temp->target)
+			ft_printf("Target_index: %d", temp->target->index);
+		ft_printf("\n");
 		temp = temp->next;
 	}
 }
