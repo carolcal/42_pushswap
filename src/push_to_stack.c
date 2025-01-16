@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:15:15 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/15 18:05:11 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/16 09:10:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,9 @@ void	cal_revrotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
 void	push_to_stack(t_stack **src, t_stack **dest, int index, char dname)
 {
 	int		len_src;
-	int		len_dest;
 	t_stack	*item;
 
 	len_src = stack_size(*src);
-	len_dest = stack_size(*dest);
 	item = *src;
 	while (item->index != index)
 		item = item->next;

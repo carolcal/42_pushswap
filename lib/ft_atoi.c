@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 17:44:22 by cayamash          #+#    #+#             */
-/*   Updated: 2024/10/28 17:45:49 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:02:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long    ft_atoi(const char *nptr)
 {
-	int	num;
-	int	sin;
+	long	num;
+	int	    sin;
 
 	num = 0;
 	sin = 1;

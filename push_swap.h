@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:44:32 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/15 16:52:49 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:10:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "lib/libft.h"
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -34,6 +35,7 @@ typedef struct s_rotate
 	int	rrd;
 }	t_rotate;
 
+int     check_arguments(char *argv[]);
 t_stack	*stack_new(int number);
 t_stack	*stack_last(t_stack *stack);
 void	stack_addback(t_stack **stack, t_stack *new);

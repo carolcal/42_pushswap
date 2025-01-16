@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 10:25:21 by cayamash          #+#    #+#              #
-#    Updated: 2025/01/15 18:39:53 by cayamash         ###   ########.fr        #
+#    Updated: 2025/01/16 11:12:35 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ SRCS = src
 INCLUDES = -I lib/ -I src/ -I .
 
 # Source files and object files
-SRC = $(SRCS)/push_swap.c $(SRCS)/push_swap_utils.c $(SRCS)/stack_create.c \
-		$(SRCS)/stack_change.c $(SRCS)/stack_utils.c $(SRCS)/calculate_index.c\
-		$(SRCS)/find_target.c $(SRCS)/push_to_stack.c
+SRC = $(SRCS)/push_swap.c $(SRCS)/check_args.c $(SRCS)/push_swap_utils.c \
+		$(SRCS)/stack_create.c $(SRCS)/stack_change.c $(SRCS)/stack_utils.c \
+		$(SRCS)/calculate_index.c $(SRCS)/find_target.c $(SRCS)/push_to_stack.c
 OBJ = $(SRC:.c=.o)
 
 #Library

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:34:35 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/15 18:39:01 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:46:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,13 @@ void	bring_small_top(t_stack **stack)
 	small = find_smallest(*stack);
 	if (small->index < (len + 1) / 2)
 	{
+        r.rd = 0;
 		r.rs = small->index;
 		ex_rotate(stack, NULL, r, 'b');
 	}
 	else
 	{
+        r.rrd = 0;
 		r.rrs = len - small->index;
 		ex_revrotate(stack, NULL, r, 'b');
 	}
@@ -104,25 +106,29 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		response;
+	int	    response;
 
-	response = 0;
+	response = check_arguments(argv);
 	if (argc > 1)
-	{
-		stack_a = stack_create(argc - 1, argv);
-		stack_b = NULL;
-		stack_print(stack_a);
-		if (is_sorted(stack_a) == 0)
-			return (EXIT_SUCCESS);
-		if (argc > 2 && argc < 5)
-			response = small_stack(&stack_a);
-		else if (argc >= 5)
-			response = large_stack(&stack_a, &stack_b);
-		ft_printf("stack final \n");
-		stack_print(stack_a);
-		stack_free(stack_a);
-		stack_free(stack_b);
-		return (response);
+	{       
+        if(response == 0)
+        {
+            stack_a = stack_create(argc - 1, argv);
+            stack_b = NULL;
+            stack_print(stack_a);
+            if (is_sorted(stack_a) == 0)
+                return (EXIT_SUCCESS);
+            if (argc > 2 && argc < 5)
+                response = small_stack(&stack_a);
+            else if (argc >= 5)
+                response = large_stack(&stack_a, &stack_b);
+            ft_printf("stack final \n");
+            stack_print(stack_a);
+            stack_free(stack_a);
+            stack_free(stack_b);
+        }
+        if(response != 0)
+            ft_printf("Error\n"); 
 	}
 	return (0);
 }
