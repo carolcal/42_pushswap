@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   target.c                                           :+:      :+:    :+:   */
+/*   find_target.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:13:46 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/15 11:27:41 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:00:41 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_stack	*find_largest(t_stack *stack)
 			largest = stack;
 		stack = stack->next;
 	}
+	//ft_printf("largest: %i\n", largest);
 	return (largest);
 }
 
@@ -84,6 +85,8 @@ t_stack	*find_target(t_stack *stack, int num, char target_stack)
 	if (target_stack == 'b')
 	{
 		target = find_closest_smaller(stack, num);
+		// if (target)
+		// 	ft_printf("closest smaller: %i\n", target->value);
 		if (!target)
 			return (find_largest(stack));
 		return (target);

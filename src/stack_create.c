@@ -74,7 +74,7 @@ void	stack_addfront(t_stack **stack, t_stack *new)
 	stack_update_index(stack);
 }
 
-t_stack	*stack_create(int length, char *argv[])
+t_stack	*stack_create(char *argv[])
 {
 	int		i;
 	int		number;
@@ -82,10 +82,11 @@ t_stack	*stack_create(int length, char *argv[])
 
 	i = 0;
 	stack = NULL;
-	while (i++ < length)
+	while (argv[i])
 	{
 		number = ft_atoi(argv[i]);
 		stack_addback(&stack, stack_new(number));
+		i++;
 	}
 	return (stack);
 }

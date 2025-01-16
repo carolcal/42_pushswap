@@ -67,16 +67,17 @@ int	stack_iter(t_stack *stack, int number, int (*f)(int n1, int n2))
 
 int	stack_free(t_stack *stack)
 {
-	t_stack	*temp;
+	t_stack	*curr;
+	t_stack	*next;
 
-	temp = stack;
-	while (stack)
+	curr = stack;
+	while (curr)
 	{
-		temp = stack;
-		stack = stack->next;
-		free(temp);
+		next = curr->next;
+		free(curr);
+		curr = next;
 	}
 	if (!stack)
-		return (0);
-	return (-1);
+		return (1);
+	return (0);
 }

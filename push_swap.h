@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:44:32 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/16 11:10:14 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/16 16:18:14 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ typedef struct s_rotate
 	int	rrd;
 }	t_rotate;
 
-int     check_arguments(char *argv[]);
+int		check_arguments(char *argv[]);
+void	free_array(char **array);
+char	**copy_array(char **src, int start, int end);
 t_stack	*stack_new(int number);
 t_stack	*stack_last(t_stack *stack);
 void	stack_addback(t_stack **stack, t_stack *new);
 void	stack_addfront(t_stack **stack, t_stack *new);
-t_stack	*stack_create(int length, char *argv[]);
+t_stack	*stack_create(char *argv[]);
 void	stack_update_index(t_stack **stack);
 void	stack_remove(t_stack **stack, int index);
 int		stack_size(t_stack *stack);

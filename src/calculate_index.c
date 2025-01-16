@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:44:06 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/15 18:37:13 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:50:01 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ int	fastest_index(t_stack *src, t_stack *dest, char target_stack)
 		}
 		temp = temp->next;
 	}
+	// if(index == 0)
+	// 	ft_printf("target: %i", src->target->index);
 	return (index);
 }
