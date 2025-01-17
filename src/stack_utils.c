@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   stack_update.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:24:57 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/15 18:36:42 by cayamash         ###   ########.fr       */
+/*   Created: 2025/01/14 09:40:04 by cayamash          #+#    #+#             */
+/*   Updated: 2025/01/14 09:40:04 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,72 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
-void	stack_print(t_stack *stack)
+void	stack_update_index(t_stack **stack)
+{
+	int		i;
+	t_stack	*temp;
+
+	i = 0;
+	temp = *stack;
+	while (temp)
+	{
+		temp->index = i;
+		temp = temp->next;
+		i++;
+	}
+}
+
+void	stack_remove(t_stack **stack, int index)
+{
+	t_stack	*temp;
+	int		i;
+
+	if (!stack || !*stack || index < 0)
+		return ;
+	temp = *stack;
+	i = 0;
+	while (temp && i < index)
+	{
+		temp = temp->next;
+		i++;
+	}
+	if (!temp)
+		return ;
+	if (temp->prev)
+		temp->prev->next = temp->next;
+	else
+		*stack = temp->next;
+	if (temp->next)
+		temp->next->prev = temp->prev;
+}
+
+int	stack_iter(t_stack *stack, int number, int (*f)(int n1, int n2))
 {
 	t_stack	*temp;
 
 	temp = stack;
 	while (temp)
 	{
-		ft_printf("Value: %d, Index: %d, ", temp->value, temp->index);
-		if (temp->steps)
-			ft_printf("Steps: %d, ", temp->steps);
-		if (temp->target)
-			ft_printf("Target_index: %d", temp->target->index);
-		ft_printf("\n");
+		if (f(temp->value, number))
+			return (temp->index);
 		temp = temp->next;
 	}
+	return (-1);
+}
+
+int	stack_free(t_stack *stack)
+{
+	t_stack	*curr;
+	t_stack	*next;
+
+	curr = stack;
+	while (curr)
+	{
+		next = curr->next;
+		free(curr);
+		curr = next;
+	}
+	if (!stack)
+		return (1);
+	return (0);
 }

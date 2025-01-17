@@ -70,7 +70,9 @@ int	check_arguments(char *argv[])
 	}
 	return (1);
 }
-void	free_array(char **array) {
+
+void	free_array(char **array)
+{
 	int	i;
 
 	i = 0;

@@ -6,7 +6,7 @@
 #    By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 10:25:21 by cayamash          #+#    #+#              #
-#    Updated: 2025/01/16 19:42:41 by cayamash         ###   ########.fr        #
+#    Updated: 2025/01/17 14:14:56 by cayamash         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,16 @@ NAME = push_swap
 
 #Compilers and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 #Directories
 SRCS = src
 INCLUDES = -I lib/ -I src/ -I .
 
 # Source files and object files
-SRC = $(SRCS)/push_swap.c $(SRCS)/check_args.c $(SRCS)/push_swap_utils.c \
-		$(SRCS)/stack_create.c $(SRCS)/stack_change.c $(SRCS)/stack_utils.c \
-		$(SRCS)/calculate_index.c $(SRCS)/find_target.c $(SRCS)/push_to_stack.c
+SRC = $(SRCS)/push_swap.c $(SRCS)/check_args.c $(SRCS)/operations.c \
+		$(SRCS)/stack_create.c $(SRCS)/stack_utils.c $(SRCS)/find_target.c\
+		$(SRCS)/calculate_index.c $(SRCS)/push_to_stack.c
 OBJ = $(SRC:.c=.o)
 
 #Library

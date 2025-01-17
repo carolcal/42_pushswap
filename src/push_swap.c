@@ -6,27 +6,11 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:34:35 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/16 17:49:44 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 14:14:10 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_sorted(t_stack *stack)
-{
-	t_stack	*temp;
-
-	if (!stack || !stack->next)
-		return (1);
-	temp = stack;
-	while (temp->next)
-	{
-		if (temp->value > temp->next->value)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
-}
 
 int	small_stack(t_stack **stack)
 {
@@ -38,20 +22,20 @@ int	small_stack(t_stack **stack)
 	if ((*stack)->value < (*stack)->next->value)
 	{
 		reverse_rotate(stack, NULL, 'a');
-		if (is_sorted(*stack) == 0)
+		if (is_sorted(*stack))
 			return (1);
 	}
 	if (((*stack)->value > (*stack)->next->value
 			&& (*stack)->value > (*stack)->next->next->value))
 	{
 		rotate(stack, NULL, 'a');
-		if (is_sorted(*stack) == 0)
+		if (is_sorted(*stack))
 			return (1);
 	}
 	if ((*stack)->value < (*stack)->next->next->value)
 	{
 		swap(stack, 'a');
-		if (is_sorted(*stack) == 0)
+		if (is_sorted(*stack))
 			return (1);
 	}
 	return (is_sorted(*stack));
@@ -89,12 +73,7 @@ int	large_stack(t_stack **stack_a, t_stack **stack_b)
 	while (stack_size(*stack_a) > 3)
 	{
 		index = fastest_index(*stack_a, *stack_b, 'b');
-		//ft_printf("index: %i\n", index);
 		push_to_stack(stack_a, stack_b, index, 'b');
-		// ft_printf("stack_a\n");
-		// stack_print(*stack_a);
-		// ft_printf("stack_b\n");
-		// stack_print(*stack_b);
 	}
 	small_stack(stack_a);
 	while (stack_size(*stack_b) > 0)
@@ -102,18 +81,37 @@ int	large_stack(t_stack **stack_a, t_stack **stack_b)
 		index = fastest_index(*stack_b, *stack_a, 'a');
 		push_to_stack(stack_b, stack_a, index, 'a');
 	}
-	if (is_sorted(*stack_a) != 0)
+	if (!is_sorted(*stack_a))
 		bring_small_top(stack_a);
 	return (is_sorted(*stack_a));
 }
 
-int	main(int argc, char *argv[])
+int	sort(char	**args, int response)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		resp;
+	int		length;
+
+	resp = response;
+	stack_a = stack_create(args);
+	stack_b = NULL;
+	if (is_sorted(stack_a))
+		return (1);
+	length = stack_size(stack_a);
+	if (length > 2 && length < 5)
+		resp = small_stack(&stack_a);
+	else if (length >= 5)
+		resp = large_stack(&stack_a, &stack_b);
+	stack_free(stack_a);
+	stack_free(stack_b);
+	return (resp);
+}
+
+int	main(int argc, char *argv[])
+{
 	int		response;
 	char	**args;
-	int		length;
 
 	if (argc == 1)
 		return (0);
@@ -126,20 +124,7 @@ int	main(int argc, char *argv[])
 	else
 		response = check_arguments(args);
 	if (response)
-	{
-		stack_a = stack_create(args);
-		stack_b = NULL;
-		if (is_sorted(stack_a))
-			return (1);
-		length = stack_size(stack_a);
-		if (length > 2 && length < 5)
-			response = small_stack(&stack_a);
-		else if (length >= 5)
-			response = large_stack(&stack_a, &stack_b);
-		stack_print(stack_a);
-		stack_free(stack_a);
-		stack_free(stack_b);
-	}
+		sort(args, response);
 	free_array(args);
 	if (!response)
 		ft_printf("Error\n");

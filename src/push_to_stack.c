@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:15:15 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/16 09:10:30 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/17 13:52:44 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ void	cal_rotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
 	r.rrs = 0;
 	r.rrd = 0;
 	len_dest = stack_size(*dest);
-	if ((item->target->index < (len_dest + 1) / 2))
+	if ((item->target->index < (len_dest + 1) / 2)
+		|| (len_dest == 2 && (item->target->index > item->index)))
 	{
 		r.rd = item->target->index;
 		ex_rotate(src, dest, r, dname);
@@ -70,6 +71,7 @@ void	cal_rotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
 	else if (item->target->index >= (len_dest + 1) / 2)
 	{
 		r.rrd = len_dest - item->target->index;
+		ex_rotate(src, dest, r, dname);
 		ex_revrotate(src, dest, r, dname);
 	}
 }
@@ -93,7 +95,8 @@ void	cal_revrotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
 	}
 	else if (item->target->index < (len_dest + 1) / 2)
 	{
-		r.rd = item->index;
+		r.rd = item->target->index;
+		ex_revrotate(src, dest, r, dname);
 		ex_rotate(src, dest, r, dname);
 	}
 }

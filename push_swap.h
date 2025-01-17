@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:44:32 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/16 16:18:14 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:59:03 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_rotate
 	int	rrd;
 }	t_rotate;
 
+int		is_sorted(t_stack *stack);
 int		check_arguments(char *argv[]);
 void	free_array(char **array);
 char	**copy_array(char **src, int start, int end);

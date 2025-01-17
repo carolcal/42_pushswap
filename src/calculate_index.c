@@ -6,11 +6,27 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:44:06 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/16 17:50:01 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:58:34 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_stack *stack)
+{
+	t_stack	*temp;
+
+	if (!stack || !stack->next)
+		return (1);
+	temp = stack;
+	while (temp->next)
+	{
+		if (temp->value > temp->next->value)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
 
 int	calculate_steps(t_stack *src, t_stack *dest, t_stack *curr)
 {
@@ -25,18 +41,18 @@ int	calculate_steps(t_stack *src, t_stack *dest, t_stack *curr)
 		steps = curr->index;
 		if ((curr->target->index < (len_dest + 1) / 2)
 			&& (curr->target->index > curr->index))
-			steps += curr->target->index - curr->index;
+			steps += (curr->target->index - curr->index);
 		else if (curr->target->index >= (len_dest + 1) / 2)
-			steps += len_dest - curr->target->index;
+			steps += (len_dest - curr->target->index);
 	}
 	else
 	{
 		steps = len_src - curr->index;
 		if ((curr->target->index >= (len_dest + 1) / 2)
-			&& (curr->target->index < curr->index))
-			steps += curr->index - curr->target->index;
+			&& ((len_src - curr->index) < (len_dest - curr->target->index)))
+			steps += (len_dest - curr->target->index) - (len_src - curr->index);
 		else if (curr->target->index < (len_dest + 1) / 2)
-			steps += curr->index;
+			steps += curr->target->index;
 	}
 	return (++steps);
 }
@@ -61,7 +77,5 @@ int	fastest_index(t_stack *src, t_stack *dest, char target_stack)
 		}
 		temp = temp->next;
 	}
-	// if(index == 0)
-	// 	ft_printf("target: %i", src->target->index);
 	return (index);
 }

@@ -6,16 +6,16 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 17:44:22 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/16 15:10:02 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 14:04:55 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-long    ft_atoi(const char *nptr)
+
+long	ft_atoi(const char *nptr)
 {
 	long	num;
-	int	    sin;
+	int		sin;
 
 	num = 0;
 	sin = 1;
