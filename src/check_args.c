@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 int	is_repeat(char *argv[], char *str, int i)
 {

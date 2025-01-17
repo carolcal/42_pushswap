@@ -6,11 +6,11 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:15:15 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 13:52:44 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 18:00:02 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 void	ex_rotate(t_stack **src, t_stack **dest, t_rotate r, char dname)
 {

@@ -6,11 +6,11 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:44:06 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 17:51:14 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:59:12 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 int	is_sorted(t_stack *stack)
 {

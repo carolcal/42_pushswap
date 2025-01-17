@@ -6,11 +6,11 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:13:46 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 13:56:48 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 17:59:40 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 t_stack	*find_closest_smaller(t_stack *stack, int num)
 {

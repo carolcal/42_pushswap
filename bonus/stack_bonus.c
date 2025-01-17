@@ -6,11 +6,11 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:44:11 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 17:48:57 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 18:03:56 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "include/checker.h"
 
 t_stack	*stack_new(int number)
 {

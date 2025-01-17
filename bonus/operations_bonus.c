@@ -6,13 +6,13 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:40:17 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 17:48:22 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 19:00:15 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "include/checker.h"
 
-void	swap(t_stack **stack, char name)
+void	swap(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -30,7 +30,7 @@ void	swap(t_stack **stack, char name)
 	*stack = second;
 }
 
-void	push(t_stack **src, t_stack **dest, char name)
+void	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*item;
 
@@ -41,7 +41,7 @@ void	push(t_stack **src, t_stack **dest, char name)
 	stack_addfront(dest, item);
 }
 
-void	rotate(t_stack **s1, t_stack **s2, char name)
+void	rotate(t_stack **s1, t_stack **s2)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -56,10 +56,10 @@ void	rotate(t_stack **s1, t_stack **s2, char name)
 	first->prev = last;
 	first->next = NULL;
 	if (s2 && *s2 && (*s2)->next)
-		rotate(s2, NULL, 0);
+		rotate(s2, NULL);
 }
 
-void	reverse_rotate(t_stack **s1, t_stack **s2, char name)
+void	reverse_rotate(t_stack **s1, t_stack **s2)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -74,5 +74,5 @@ void	reverse_rotate(t_stack **s1, t_stack **s2, char name)
 	first->prev = last;
 	*s1 = last;
 	if (s2 && *s2 && (*s2)->next)
-		reverse_rotate(s2, NULL, 0);
+		reverse_rotate(s2, NULL);
 }

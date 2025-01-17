@@ -6,11 +6,11 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:34:35 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 14:14:10 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/17 18:59:44 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "include/push_swap.h"
 
 int	small_stack(t_stack **stack)
 {
@@ -124,7 +124,7 @@ int	main(int argc, char *argv[])
 	else
 		response = check_arguments(args);
 	if (response)
-		sort(args, response);
+		response = sort(args, response);
 	free_array(args);
 	if (!response)
 		ft_printf("Error\n");
