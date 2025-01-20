@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:45:05 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/20 14:09:27 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:31:26 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	checker(char **args)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-
 }
 
 int	main(int argc, char *argv[])

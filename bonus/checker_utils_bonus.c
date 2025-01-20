@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:43:08 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/20 10:40:08 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:31:46 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ void	stack_remove_first(t_stack **stack)
 	if (!stack || !*stack)
 		return ;
 	temp = *stack;
-
 	if (!temp)
 		return ;
 	*stack = temp->next;
 	if (temp->next)
 		temp->next->prev = NULL;
-	
 }
