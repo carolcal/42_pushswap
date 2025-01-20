@@ -12,7 +12,7 @@ I did a function to each operation located in the `operations.c` file.
 ## Algorithm
 For this project, I chose to use the Turkish Algorithm due to its efficiency in sorting large lists with minimal movements and its ease of understanding.
 
-To learn more about the Turkish Algorithm, check out this article: https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+To learn more about the Turkish Algorithm, check out this [article](https://medium.com/@ayogun/push-swap-c1f5d2d41e97).
 
 ## Project Organization
 The project is divided into 6 parts:
