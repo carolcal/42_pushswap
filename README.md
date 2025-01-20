@@ -71,3 +71,29 @@ When **Stack A** is reduced to three numbers, the sorting stops. The small stack
 
 #### 6) Bring Smallest to Top
 In the final step, the smallest number in **Stack A** is brought to the top using rotations or reverse rotations, completing the sorting process.
+
+## Bonus
+
+In the bonus part of the project, we implemented our own checker. This program works as follows:
+
+- It receives arguments just like the push_swap program.
+- Instead of performing the operations directly, it reads a sequence of operations provided by the user via standard input.
+- When the user finishes inputting operations (signaled by pressing `Ctrl + D`), the checker verifies if the stack is correctly sorted.
+
+The output of the checker is as follows:
+
+- OK: The stack is correctly sorted.
+- KO: The stack is not sorted.
+- Error: An invalid operation or input was encountered.
+
+This bonus feature allows users to test their sequences of operations and validate their correctness efficiently.
+
+## Executing the Program
+
+To execute the push_swap program, use the make command, and to execute the checker program, use the make bonus command.
+
+After compiling, you can run the executable `./push_swap $ARGS`, which will print a sequence of commands. To count the number of commands, you can use `./push_swap $ARGS | wc -l`
+
+To verify if the sequence of commands is correct, execute `./checker $ARGS`
+
+Then, paste the sequence of commands into the input. When finished, press `Ctrl + D` to check the result.
