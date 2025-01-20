@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:45:05 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 18:58:06 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:52:48 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,26 @@
 
 void	exec_command(t_stack **stack_a, t_stack **stack_b, char *command)
 {
-	t_rotate	r;
-
-	if (ft_strncmp(command, "rrr", 3))
+	if (ft_strncmp(command, "rrr", 3) == 0)
 		reverse_rotate(stack_a, stack_b);
-	else if (ft_strncmp(command, "rra", 3))
+	else if (ft_strncmp(command, "rra", 3) == 0)
 		reverse_rotate(stack_a, NULL);
-	else if (ft_strncmp(command, "rrB", 3))
+	else if (ft_strncmp(command, "rrb", 3) == 0)
 		reverse_rotate(stack_b, NULL);
-	else if (ft_strncmp(command, "rr", 2))
+	else if (ft_strncmp(command, "rr", 2) == 0)
 		rotate(stack_a, stack_b);
-	else if (ft_strncmp(command, "ra", 2))
+	else if (ft_strncmp(command, "ra", 2) == 0)
 		rotate(stack_a, NULL);
-	else if (ft_strncmp(command, "rb", 2))
+	else if (ft_strncmp(command, "rb", 2) == 0)
 		rotate(stack_b, NULL);
-	else if (ft_strncmp(command, "pa", 2))
-		push(stack_a, stack_b);
-	else if (ft_strncmp(command, "pb", 2))
+	else if (ft_strncmp(command, "pa", 2) == 0)
 		push(stack_b, stack_a);
-	else if (ft_strncmp(command, "sa", 2))
+	else if (ft_strncmp(command, "pb", 2) == 0)
+		push(stack_a, stack_b);
+	else if (ft_strncmp(command, "sa", 2) == 0)
 		swap(stack_a);
-	else if (ft_strncmp(command, "sb", 2))
+	else if (ft_strncmp(command, "sb", 2) == 0)
 		swap(stack_b);
-	else
-		return (1);
-	return (0);
 }
 
 void	read_commands(t_stack **stack_a, t_stack **stack_b)
@@ -62,7 +57,7 @@ void	checker(char **args)
 	stack_a = stack_create(args);
 	stack_b = NULL;
 	if (is_sorted(stack_a))
-		return (1);
+		return ;
 	read_commands(&stack_a, &stack_b);
 	if (is_sorted(stack_a) && stack_size(stack_b) == 0)
 		ft_printf("OK\n");
@@ -85,11 +80,10 @@ int	main(int argc, char *argv[])
 	if (!args)
 		response = 0;
 	else
-		response = check_arguments(argv);
-	if(response)
+		response = check_arguments(args);
+	if (response)
 		checker(args);
 	else
 		ft_printf("Error\n");
-	
 	return (0);
 }

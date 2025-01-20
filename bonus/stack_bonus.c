@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:44:11 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 18:03:56 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/20 09:42:07 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	stack_addfront(t_stack **stack, t_stack *new)
 		new->prev = NULL;
 	}
 	*stack = new;
-	stack_update_index(stack);
 }
 
 t_stack	*stack_create(char *argv[])
