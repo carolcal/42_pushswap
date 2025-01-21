@@ -82,9 +82,9 @@ In the bonus part of the project, we implemented our checker. This program works
 
 The output of the checker is as follows:
 
-- OK: The stack is correctly sorted.
-- KO: The stack is not sorted.
-- Error: An invalid operation or input was encountered.
+- **OK**: The stack is correctly sorted.
+- **KO**: The stack is not sorted.
+- **Error**: An invalid operation or input was encountered.
 
 This bonus feature allows users to test their sequences of operations and validate their correctness efficiently.
 
