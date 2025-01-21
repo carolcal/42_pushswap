@@ -88,6 +88,8 @@ The output of the checker is as follows:
 
 This bonus feature allows users to test their sequences of operations and validate their correctness efficiently.
 
+![PushSwap and Bonus Output](img/42_pushswap.png)
+
 ## Executing the Program
 
 To execute the push_swap program, use the make command, and to execute the checker program, use the make bonus command.
@@ -97,3 +99,7 @@ After compiling, you can run the executable `./push_swap $ARGS`, which will prin
 To verify if the sequence of commands is correct, execute `./checker $ARGS`
 
 Then, paste the sequence of commands into the input. When finished, press `Ctrl + D` to check the result.
+
+With the help of a visualizer it is possible to see the program functioning:
+
+![PushSwap Visualizer](img/42_pushswap_visualizer.gif)

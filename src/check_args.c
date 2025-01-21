@@ -33,10 +33,8 @@ int	is_int(char *arg)
 {
 	int		j;
 	long	num;
-	int		spaces;
 
 	j = 0;
-	spaces = 0;
 	if (arg[j] == '-')
 	{
 		if (ft_strlen(arg) > 11)
