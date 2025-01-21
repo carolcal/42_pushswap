@@ -21,7 +21,8 @@ The project is divided into 6 parts:
 3. Classify into small or large stack
 4. Find the index of the number requiring the fewest operations.
 5. Execute the operations.
-6. Bring the smallest to the top
+6. Bring the smallest to the top.
+
 Additionally, I used linked lists to represent the stacks. That was very efficient for my chosen algorithm as I could store additional metadata with each number.
 
 #### 1) Validate Input Arguments
