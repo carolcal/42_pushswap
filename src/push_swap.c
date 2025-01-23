@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:34:35 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/23 09:55:30 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:37:01 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,11 @@ int	sort(char	**args, int response)
 	stack_a = stack_create(args);
 	stack_b = NULL;
 	if (is_sorted(stack_a))
+	{
+		stack_free(stack_a);
+		stack_free(stack_b);
 		return (1);
+	}
 	length = stack_size(stack_a);
 	if (length > 1 && length < 4)
 		resp = small_stack(&stack_a);
