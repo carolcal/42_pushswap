@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:34:35 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 18:59:44 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:55:30 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ int	large_stack(t_stack **stack_a, t_stack **stack_b)
 		index = fastest_index(*stack_a, *stack_b, 'b');
 		push_to_stack(stack_a, stack_b, index, 'b');
 	}
-	small_stack(stack_a);
+	if (!is_sorted(*stack_a))
+		small_stack(stack_a);
 	while (stack_size(*stack_b) > 0)
 	{
 		index = fastest_index(*stack_b, *stack_a, 'a');
@@ -99,9 +100,9 @@ int	sort(char	**args, int response)
 	if (is_sorted(stack_a))
 		return (1);
 	length = stack_size(stack_a);
-	if (length > 2 && length < 5)
+	if (length > 1 && length < 4)
 		resp = small_stack(&stack_a);
-	else if (length >= 5)
+	else if (length >= 4)
 		resp = large_stack(&stack_a, &stack_b);
 	stack_free(stack_a);
 	stack_free(stack_b);
