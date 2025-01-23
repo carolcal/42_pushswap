@@ -12,7 +12,7 @@
 
 #include "include/checker.h"
 
-int	is_repeat(char *argv[], char *str, int i)
+static int	is_repeat_bonus(char *argv[], char *str, int i)
 {
 	size_t	len;
 
@@ -29,7 +29,7 @@ int	is_repeat(char *argv[], char *str, int i)
 	return (1);
 }
 
-int	is_int(char *arg)
+static int	is_int_bonus(char *arg)
 {
 	int		j;
 	long	num;
@@ -55,23 +55,23 @@ int	is_int(char *arg)
 	return (1);
 }
 
-int	check_arguments(char *args[])
+int	check_arguments_bonus(char *args[])
 {
 	int	i;
 
 	i = 0;
 	while (args[i])
 	{
-		if (!is_int(args[i]))
+		if (!is_int_bonus(args[i]))
 			return (0);
-		if (!is_repeat(args, args[i], i + 1))
+		if (!is_repeat_bonus(args, args[i], i + 1))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-void	free_array(char **array)
+void	free_array_bonus(char **array)
 {
 	int	i;
 
@@ -84,7 +84,7 @@ void	free_array(char **array)
 	free(array);
 }
 
-char	**copy_array(char **src, int start, int end)
+char	**copy_array_bonus(char **src, int start, int end)
 {
 	int		i;
 	char	**array;
@@ -98,7 +98,7 @@ char	**copy_array(char **src, int start, int end)
 		array[i] = ft_strdup(src[start]);
 		if (!array[i])
 		{
-			free_array(array);
+			free_array_bonus(array);
 			return (NULL);
 		}
 		i++;

@@ -6,13 +6,13 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:43:08 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/20 17:31:46 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:14:14 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/checker.h"
 
-int	is_sorted(t_stack *stack)
+int	is_sorted_bonus(t_stack *stack)
 {
 	t_stack	*temp;
 
@@ -28,7 +28,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-int	stack_size(t_stack *stack)
+int	stack_size_bonus(t_stack *stack)
 {
 	int		size;
 	t_stack	*temp;
@@ -45,7 +45,7 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
-void	stack_remove_first(t_stack **stack)
+void	stack_remove_first_bonus(t_stack **stack)
 {
 	t_stack	*temp;
 
@@ -57,4 +57,21 @@ void	stack_remove_first(t_stack **stack)
 	*stack = temp->next;
 	if (temp->next)
 		temp->next->prev = NULL;
+}
+
+int	stack_free_bonus(t_stack *stack)
+{
+	t_stack	*curr;
+	t_stack	*next;
+
+	curr = stack;
+	while (curr)
+	{
+		next = curr->next;
+		free(curr);
+		curr = next;
+	}
+	if (!stack)
+		return (1);
+	return (0);
 }

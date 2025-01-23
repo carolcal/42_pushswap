@@ -6,13 +6,13 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 09:34:35 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/23 13:37:01 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:40:42 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	small_stack(t_stack **stack)
+static int	small_stack(t_stack **stack)
 {
 	if (stack_size(*stack) == 2)
 	{
@@ -41,7 +41,7 @@ int	small_stack(t_stack **stack)
 	return (is_sorted(*stack));
 }
 
-void	bring_small_top(t_stack **stack)
+static void	bring_small_top(t_stack **stack)
 {
 	t_rotate	r;
 	t_stack		*small;
@@ -63,7 +63,7 @@ void	bring_small_top(t_stack **stack)
 	}
 }
 
-int	large_stack(t_stack **stack_a, t_stack **stack_b)
+static int	large_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int	index;
 
@@ -87,7 +87,7 @@ int	large_stack(t_stack **stack_a, t_stack **stack_b)
 	return (is_sorted(*stack_a));
 }
 
-int	sort(char	**args, int response)
+static int	sort(char	**args, int response)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;

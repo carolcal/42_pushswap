@@ -68,20 +68,6 @@ void	stack_remove(t_stack **stack, int index)
 		temp->next->prev = temp->prev;
 }
 
-int	stack_iter(t_stack *stack, int number, int (*f)(int n1, int n2))
-{
-	t_stack	*temp;
-
-	temp = stack;
-	while (temp)
-	{
-		if (f(temp->value, number))
-			return (temp->index);
-		temp = temp->next;
-	}
-	return (-1);
-}
-
 int	stack_free(t_stack *stack)
 {
 	t_stack	*curr;

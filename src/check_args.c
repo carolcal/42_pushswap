@@ -12,7 +12,7 @@
 
 #include "include/push_swap.h"
 
-int	is_repeat(char *argv[], char *str, int i)
+static int	is_repeat(char *argv[], char *str, int i)
 {
 	size_t	len;
 
@@ -29,7 +29,7 @@ int	is_repeat(char *argv[], char *str, int i)
 	return (1);
 }
 
-int	is_int(char *arg)
+static int	is_int(char *arg)
 {
 	int		j;
 	long	num;

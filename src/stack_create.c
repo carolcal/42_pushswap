@@ -12,7 +12,7 @@
 
 #include "include/push_swap.h"
 
-t_stack	*stack_new(int number)
+static t_stack	*stack_new(int number)
 {
 	t_stack	*new;
 
@@ -39,7 +39,7 @@ t_stack	*stack_last(t_stack *stack)
 	return (temp);
 }
 
-void	stack_addback(t_stack **stack, t_stack *new)
+static void	stack_addback(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
 

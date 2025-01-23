@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:44:06 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 17:59:12 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:40:55 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-int	calculate_steps(t_stack *src, t_stack *dest, t_stack *curr)
+static int	calculate_steps(t_stack *src, t_stack *dest, t_stack *curr)
 {
 	int	len_src;
 	int	len_dest;

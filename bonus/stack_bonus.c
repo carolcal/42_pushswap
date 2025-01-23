@@ -6,13 +6,13 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:44:11 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/20 09:42:07 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:21:38 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/checker.h"
 
-t_stack	*stack_new(int number)
+static t_stack	*stack_new_bonus(int number)
 {
 	t_stack	*new;
 
@@ -25,7 +25,7 @@ t_stack	*stack_new(int number)
 	return (new);
 }
 
-t_stack	*stack_last(t_stack *stack)
+t_stack	*stack_last_bonus(t_stack *stack)
 {
 	t_stack	*temp;
 
@@ -37,13 +37,13 @@ t_stack	*stack_last(t_stack *stack)
 	return (temp);
 }
 
-void	stack_addback(t_stack **stack, t_stack *new)
+static void	stack_addback_bonus(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
 
 	if (!stack || !new)
 		return ;
-	last = stack_last(*stack);
+	last = stack_last_bonus(*stack);
 	if (!last)
 		*stack = new;
 	else
@@ -53,7 +53,7 @@ void	stack_addback(t_stack **stack, t_stack *new)
 	}
 }
 
-void	stack_addfront(t_stack **stack, t_stack *new)
+void	stack_addfront_bonus(t_stack **stack, t_stack *new)
 {
 	if (!stack || !new)
 		return ;
@@ -70,7 +70,7 @@ void	stack_addfront(t_stack **stack, t_stack *new)
 	*stack = new;
 }
 
-t_stack	*stack_create(char *argv[])
+t_stack	*stack_create_bonus(char *argv[])
 {
 	int		i;
 	int		number;
@@ -81,7 +81,7 @@ t_stack	*stack_create(char *argv[])
 	while (argv[i])
 	{
 		number = ft_atoi(argv[i]);
-		stack_addback(&stack, stack_new(number));
+		stack_addback_bonus(&stack, stack_new_bonus(number));
 		i++;
 	}
 	return (stack);

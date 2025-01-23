@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:15:15 by cayamash          #+#    #+#             */
-/*   Updated: 2025/01/17 18:00:02 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:43:34 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ex_revrotate(t_stack **src, t_stack **dest, t_rotate r, char dname)
 		reverse_rotate(dest, NULL, dname);
 }
 
-void	cal_rotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
+static void	cal_rotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
 {
 	t_rotate	r;
 	int			len_dest;
@@ -76,7 +76,7 @@ void	cal_rotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
 	}
 }
 
-void	cal_revrotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
+static void	cal_revrotate(t_stack **src, t_stack **dest, t_stack *item, char dname)
 {
 	t_rotate	r;
 	int			len_dest;
