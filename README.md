@@ -91,11 +91,25 @@ This bonus feature allows users to test their sequences of operations and valida
 
 ## Executing the Program
 
-To execute the push_swap program, use the `make` command, and to execute the checker program, use the `make bonus` command.
+To execute the push_swap program:
+```
+make
+```
+After compiling, you can run the executable, which will print a sequence of commands:
+```
+./push_swap $ARGS
+```
+To count the number of commands, you can use:
+```
+./push_swap $ARGS | wc -l
+```
 
-After compiling, you can run the executable `./push_swap $ARGS`, which will print a sequence of commands. To count the number of commands, you can use `./push_swap $ARGS | wc -l`.
-
-To verify if the sequence of commands is correct, execute `./checker $ARGS` and paste the sequence of commands into the input. When finished, press `Ctrl + D` to check the result.
+To verify if the sequence of commands is correct, execute the checker program:
+```
+make bonus
+./checker $ARGS
+```
+Then paste the sequence of commands into the input. When finished, press `Ctrl + D` to check the result.
 
 ![PushSwap and Bonus Output](img/42_pushswap.png)
 
